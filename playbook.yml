@@ -7,7 +7,7 @@
   roles:
     - role: andreygubarev.core.kubernetes
       vars:
-        kubernetes_cluster_apiserver: "127.0.0.1"
-        kubernetes_cluster_apitoken: "secret"
+        kubernetes_cluster_apiserver: "{{ lookup('env', 'KUBERNETES_APISERVER') }}"
+        kubernetes_cluster_apitoken: "{{ lookup('env', 'KUBERNETES_APITOKEN') }}"
         kubernetes_cluster_bootstrap: true
         kubernetes_node_role: server
