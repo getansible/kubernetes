@@ -59,7 +59,9 @@ jobs:
 
       - name: Create SHA512SUMS
         run: |
-          tar -czf ${{ env.ANSIBLE_PLAYBOOK_NAME }}.tar.gz .
+          tmpdir=$(mktemp -d)
+          tar -czf $tmpdir/${{ env.ANSIBLE_PLAYBOOK_NAME }}.tar.gz .
+          mv $tmpdir/${{ env.ANSIBLE_PLAYBOOK_NAME }}.tar.gz .
           sha512sum ${{ env.ANSIBLE_PLAYBOOK_NAME }}.tar.gz > SHA512SUMS
 
       - name: Create Release
