@@ -36,8 +36,7 @@ jobs:
           name: ${{ env.ANSIBLE_PLAYBOOK_NAME }}
           path: |
             **/*
-            !.git
-            !.github
+            !.git*
             !LICENSE
 
   release:
@@ -60,8 +59,7 @@ jobs:
 
       - name: Create SHA512SUMS
         run: |
-          ls -al
-          tar -czf ${{ env.ANSIBLE_PLAYBOOK_NAME }}-${{ github.ref }}.tar.gz ${{ env.ANSIBLE_PLAYBOOK_NAME }}
+          tar -czf ${{ env.ANSIBLE_PLAYBOOK_NAME }}-${{ github.ref }}.tar.gz .
           sha512sum ${{ env.ANSIBLE_PLAYBOOK_NAME }}-${{ github.ref }}.tar.gz > SHA512SUMS
 
       - name: Create Release
