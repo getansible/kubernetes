@@ -1,2 +1,3 @@
+dnspython
 opentelemetry-api
 opentelemetry-exporter-otlp

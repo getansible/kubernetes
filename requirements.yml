@@ -1,3 +1,4 @@
 ---
 collections:
   - name: andreygubarev.core
+    version: 0.6.1
