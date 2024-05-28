@@ -6,9 +6,3 @@
   become: true
   roles:
     - role: andreygubarev.core.kubernetes
-      vars:
-        kubernetes_cluster_name: "{{ lookup('env', 'KUBERNETES_CLUSTER_NAME') }}"
-        kubernetes_cluster_apitoken: "{{ lookup('env', 'KUBERNETES_CLUSTER_TOKEN') }}"
-        kubernetes_cluster_bootstrap_domain: "{{ lookup('env', 'GANDI_DOMAIN') }}"
-        kubernetes_cluster_bootstrap_token: "{{ lookup('env', 'GANDI_TOKEN') }}"
-        kubernetes_node_role: "{{ lookup('env', 'KUBERNETES_NODE_ROLE') | default('server') }}"
