@@ -37,6 +37,7 @@ jobs:
           path: |
             **/*
             !.git*
+            !examples
             !LICENSE
 
   release:
